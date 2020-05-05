@@ -7,18 +7,20 @@ namespace Mohamed_Shafik_Mohamed_Shafik.Models
 {
     public class Parent
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name  { get; set; }
-        public string image { get; set; }
+       
     }
     public class My_info:Parent
     {
-     
+        
+        public string education { get; set; }
         public string job  { get; set; }
+       
     }
     public class Projects : Parent
     {
-
+        public string url { get; set; }
         public string Discription { get; set; }
     }
 }

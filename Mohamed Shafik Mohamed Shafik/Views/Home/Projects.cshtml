@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Mohamed_Shafik_Mohamed_Shafik.Models.Projects>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+<br />
+<br />
+<br />
+<h1>Projects</h1>
+<form asp-action="Delete">
+    <p>
+        <a asp-action="add_project">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.url)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.url)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <input type="text" value="@item.Id" name="id" style="display:none;" />
+
+                        <input type="submit" value="Delete" class="btn btn-outline-danger"  />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+</form>
