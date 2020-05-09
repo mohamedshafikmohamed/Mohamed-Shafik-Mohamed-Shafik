@@ -58,12 +58,32 @@ namespace Mohamed_Shafik_Mohamed_Shafik.Controllers
           
             d.projects.Add(p);
             d.SaveChanges();
-            return View();
+            return RedirectToAction("Projects");
         }
-        [HttpPost]
+      
         public IActionResult Delete(int id )
         {
-            d.projects.Remove(d.projects.Find(id));
+
+
+            return View(d.projects.Find(id));
+        }
+        public IActionResult Deleteconfirm(Projects p)
+        {
+            d.projects.Remove(p);
+            d.SaveChanges();
+
+            return RedirectToAction("Projects");
+        }
+        public IActionResult edit(int id)
+        {
+           
+
+            return View(d.projects.Find(id));
+        }
+        [HttpPost]
+        public IActionResult edit(int id ,Projects p)
+        {
+            d.projects.Update(p);
             d.SaveChanges();
 
             return RedirectToAction("Projects");

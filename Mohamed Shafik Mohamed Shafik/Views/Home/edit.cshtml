@@ -1,32 +1,20 @@
 ﻿@model Mohamed_Shafik_Mohamed_Shafik.Models.Projects
 
 @{
-    ViewData["Title"] = "add_project";
+    ViewData["Title"] = "edit";
 }
-<br />
-<br />
 
-<br />
-<br />
-<h1 style="margin:30px;">add_project</h1>
+<h1>edit</h1>
 
-
+<h4 style="margin:40px;">Projects</h4>
 <hr />
-<div class="row" style="margin:30px;">
-    <div class="col-md-4" style="margin-left:30px;">
-        <form asp-action="add_project">
-            <br />
-            <br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="edit" style="margin:40px;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
                 <label asp-for="url" class="control-label"></label>
-                <input asp-for="url"  class="form-control" />
+                <input asp-for="url" class="form-control" />
                 <span asp-validation-for="url" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,21 +22,23 @@
                 <input asp-for="Discription" class="form-control" />
                 <span asp-validation-for="Discription" class="text-danger"></span>
             </div>
-            <br />
-
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-
-<div style="margin-left:30px;">
-    <a asp-action="Index">Back to List</a>
+<div>
+    <a asp-action="Projects" style="margin:40px;">Back to List</a>
 </div>
-<br />
-<br />
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
